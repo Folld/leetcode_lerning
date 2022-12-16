@@ -8,8 +8,8 @@ class Solution:
 
     def binary_search(self, row: list[int], target: int):
         low = 0
-        top = len(row)
         middle = len(row) // 2
+        top = len(row)
         if row[middle] == target:
             return True
         if len(row) <= 1:

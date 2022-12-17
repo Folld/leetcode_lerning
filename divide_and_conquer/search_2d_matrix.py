@@ -13,7 +13,7 @@ class Solution:
         if row[middle] == target:
             return True
         if len(row) <= 1:
-            return
+            return False
         if row[middle] > target:
             top = middle
         elif row[middle] < target:

@@ -10,7 +10,6 @@ class Solution:
         return not stack
 
 
-
 assert Solution().isValid("{()}") is True
 assert Solution().isValid("()") is True
 assert Solution().isValid("()[]{}") is True

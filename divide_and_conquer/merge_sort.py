@@ -3,10 +3,10 @@ class Solution:
         if len(nums) <= 1:
             return nums
 
-        pivot = len(nums) // 2
-        left_list = self.sort_array(nums[0:pivot])
-        right_list = self.sort_array(nums[pivot:])
-        return self.merge(left_list, right_list)
+        mid = len(nums) // 2
+        left = self.sort_array(nums[:mid])
+        right = self.sort_array(nums[mid:])
+        return self.merge(left, right)
 
     @staticmethod
     def merge(left_list: list, right_list: list) -> list:
@@ -26,5 +26,4 @@ class Solution:
 
 numbers = [5, 2, 3, 1]
 s = Solution()
-print(s.sort_array(numbers))
-numbers.sort()
+assert s.sort_array(numbers) == [1, 2, 3, 5]

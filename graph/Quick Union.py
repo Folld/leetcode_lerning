@@ -18,12 +18,12 @@ class UnionFind:
 
 
 # Test Case
-uf = UnionFind(6)  # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-uf.union(0, 1)
-uf.union(0, 2)
-uf.union(3, 5)
-uf.union(5, 4)
-uf.union(4, 3)
+uf = UnionFind(6)  # [0, 1, 2, 3, 4, 5]
+uf.union(0, 1)  # [0, 0, 2, 3, 4, 5]
+uf.union(0, 2)  # [0, 0, 0, 3, 4, 5]
+uf.union(3, 5)  # [0, 0, 0, 3, 4, 3]
+uf.union(5, 4)  # [0, 0, 0, 3, 5, 3]
+uf.union(4, 3)  # [0, 0, 0, 3, 5, 3]
 assert not uf.connected(1, 3)
-uf.union(2, 4)
+uf.union(2, 4)  # [0, 0, 0, 3, 2, 3]
 assert uf.connected(1, 4)

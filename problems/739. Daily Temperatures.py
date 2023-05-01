@@ -1,20 +1,17 @@
-from random import randrange
-
-
 class Solution:
     @staticmethod
     def daily_temperatures(temperatures: list[int]) -> list[int]:
-        result = [0] * len(temperatures)
+        result = [0 for _ in temperatures]
         stack = []
-        for index, temp in enumerate(temperatures):
+        for idx, temp in enumerate(temperatures):
             while stack and stack[-1][0] < temp:
-                top_stack_index = stack.pop()[-1]
-                count = index - top_stack_index
-                result[top_stack_index] = count
-            stack.append((temp, index))
+                top_idx = stack.pop()[-1]
+                count = idx - top_idx
+                result[top_idx] = count
+            stack.append((temp, idx))
         return result
 
 
 sol = Solution()
-nums = [randrange(30, 100) for _ in range(10_000_000)]
-print(sol.daily_temperatures(nums))
+nums = [30, 45, 31, 46, 25, 60, 90, 32, 33, 31, 30, 30, 100]
+assert sol.daily_temperatures(nums) == [1, 2, 1, 2, 1, 1, 6, 1, 4, 3, 2, 1, 0]
